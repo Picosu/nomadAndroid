@@ -9,14 +9,14 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 
-import app.adapter.CardAdapter;
-import app.model.Event;
-import app.service.NomadService;
-import app.service.ServiceFactory;
 import com.example.githubdemo.app.R;
 
 import java.util.List;
 
+import app.adapter.CardAdapter;
+import app.model.Event;
+import app.service.NomadService;
+import app.service.ServiceFactory;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
          * Set up Android CardView/RecycleView
          */
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        mRecyclerView.setHasFixedSize(true);
+        //mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         final CardAdapter mCardAdapter = new CardAdapter();
         mRecyclerView.setAdapter(mCardAdapter);
@@ -57,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<List<Event>> call, Response<List<Event>> response) {
                         Log.d("test","the data event is "+ response.body().toString());
-                        CardAdapter adapter = new CardAdapter();
+                        mCardAdapter.updateItem(response.body());
+                        mCardAdapter.notifyDataSetChanged();
                     }
 
                     @Override

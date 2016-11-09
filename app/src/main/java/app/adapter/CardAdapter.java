@@ -41,9 +41,10 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         viewHolder.titre.setText(nomad.getTitle());
         viewHolder.date.setText(nomad.getDateStart());
         viewHolder.excerp.setText(nomad.getExcerp());
-//        viewHolder.login.setText(github.getLogin());
-//        viewHolder.repos.setText("repos: " + github.getPublicRepos());
-//        viewHolder.blog.setText("blog: " + github.getBlog());
+    }
+
+    public void updateItem(List<Event> events) {
+        this.mItems = events;
     }
 
     @Override
