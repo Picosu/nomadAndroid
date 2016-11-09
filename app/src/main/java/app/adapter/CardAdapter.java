@@ -13,6 +13,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.githubdemo.app.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import app.model.Event;
@@ -46,7 +47,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         viewHolder.date.setText(nomad.getDateStart());
         viewHolder.excerp.setText(nomad.getExcerp());
 
-
         if (nomad.getMedias() != null && nomad.getMedias().size() > 0 && nomad.getMedias().get(0).getUrl() != null && !TextUtils.isEmpty(nomad.getMedias().get(0).getUrl())) {
             Glide
                     .with(viewHolder.imageVeiw.getContext())
@@ -65,6 +65,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
     }
 
     public void updateItem(List<Event> events) {
+        Collections.sort(events);
         this.mItems = events;
     }
 

@@ -7,7 +7,12 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Event {
+public class Event implements Comparable<Event> {
+
+    @Override
+    public int compareTo(Event o) {
+        return getDateStart().compareTo(o.getDateStart());
+    }
 
     @SerializedName("form")
     @Expose
