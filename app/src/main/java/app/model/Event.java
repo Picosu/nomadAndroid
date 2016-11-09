@@ -44,7 +44,7 @@ public class Event {
     private String publishState;
     @SerializedName("medias")
     @Expose
-    private List<Object> medias = new ArrayList<Object>();
+    private List<Media> medias = new ArrayList<Media>();
     @SerializedName("linksToItem")
     @Expose
     private List<Object> linksToItem = new ArrayList<Object>();
@@ -247,14 +247,14 @@ public class Event {
     /**
      * @return The medias
      */
-    public List<Object> getMedias() {
+    public List<Media> getMedias() {
         return medias;
     }
 
     /**
      * @param medias The medias
      */
-    public void setMedias(List<Object> medias) {
+    public void setMedias(List<Media> medias) {
         this.medias = medias;
     }
 
