@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
          * Set up Android CardView/RecycleView
          */
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        //mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         final CardAdapter mCardAdapter = new CardAdapter();
         mRecyclerView.setAdapter(mCardAdapter);
